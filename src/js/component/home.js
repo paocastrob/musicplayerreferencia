@@ -8,21 +8,25 @@ import rigoImage from "../../img/rigo-baby.jpg";
 //create your first component
 export class Home extends React.Component {
 	constructor() {
-		super();
+		// built in method, first part of cyclo de vida
+		super(); // allows "this" to be used below
+
 		this.state = {
 			songs: [],
 			current: null
-		};
+		}; // state initialization
 	}
 
 	componentDidMount() {
+		// bulit in lifecycle method
 		// this.pauseBtn.style.display = "none";
-		fetch("https://assets.breatheco.de/apis/sound/songs")
-			.then(resp => resp.json())
+		fetch("https://assets.breatheco.de/apis/sound/songs") // grabs data
+			.then(pandapanda => pandapanda.json()) // resp wasnt special
 			.then(songs => this.setState({ songs }));
 	}
 
 	songPlay = url => {
+		// arrow function created
 		// console.log("url", url);
 		this.setState({
 			current: "https://assets.breatheco.de/apis/sound/" + url
@@ -46,18 +50,21 @@ export class Home extends React.Component {
 	// }
 
 	render() {
+		//render method is a lifecycle method
 		return (
-			<div className="text-center mt-5">
-				{this.state.songs.map((ez, ill) => {
+			<div className="text-center mt-5 hello">
+				{this.state.songs.map((e, i) => {
+					//map expects specific arguments, for reference use https://www.w3schools.com/jsref/jsref_map.asp || array.map(function(currentValue, index, arr), thisValue)
+
 					return (
-						<Songs
-							key={ill}
-							name={this.state.songs[ill].name}
-							id={this.state.songs[ill].id}
-							cat={this.state.songs[ill].category}
-							url={this.state.songs[ill].url}
+						<Songs // from songs.js
+							key={i} //map needs key
+							name={this.state.songs[i].name}
+							id={this.state.songs[i].id}
+							catz={this.state.songs[i].category}
+							url={this.state.songs[i].url}
 							songPlay={() =>
-								this.songPlay(this.state.songs[ill].url)
+								this.songPlay(this.state.songs[i].url)
 							}
 						/>
 					);

@@ -14,7 +14,9 @@ export class Songs extends React.Component {
 						<div className="col-8 text-white">
 							{this.props.name}
 						</div>
-						<div className="col-1 text-white">{this.props.cat}</div>
+						<div className="col-1 text-white">
+							{this.props.catz}
+						</div>
 						<div className="col-1">
 							<a
 								className="btn btn-dark text-white"
