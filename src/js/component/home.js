@@ -21,13 +21,14 @@ export class Home extends React.Component {
 			.then(resp => resp.json())
 			.then(songs => this.setState({ songs }));
 	}
+
 	songPlay = url => {
 		// console.log("url", url);
 		this.setState({
 			current: "https://assets.breatheco.de/apis/sound/" + url
-
 		});
 	};
+
 	// pipo() {
 	// 	let i = 0;
 	// 	let arr = [];
@@ -47,23 +48,27 @@ export class Home extends React.Component {
 	render() {
 		return (
 			<div className="text-center mt-5">
-				{this.state.songs.map((e, i) => {
+				{this.state.songs.map((ez, ill) => {
 					return (
 						<Songs
-							key={i}
-							name={this.state.songs[i].name}
-							id={this.state.songs[i].id}
-							cat={this.state.songs[i].category}
-							url={this.state.songs[i].url}
+							key={ill}
+							name={this.state.songs[ill].name}
+							id={this.state.songs[ill].id}
+							cat={this.state.songs[ill].category}
+							url={this.state.songs[ill].url}
 							songPlay={() =>
-								this.songPlay(this.state.songs[i].url)
+								this.songPlay(this.state.songs[ill].url)
 							}
 						/>
 					);
 				})}
 
 				<div className="fixed-bottom bg-secondary">
-					<Player /*songIdFromHome={this.state.songs[i].id}*/ currentUrl={this.state.current}/>
+					<Player
+						/*songIdFromHome={this.state.songs[i].id}*/ currentUrl={
+							this.state.current
+						}
+					/>
 				</div>
 			</div>
 		);

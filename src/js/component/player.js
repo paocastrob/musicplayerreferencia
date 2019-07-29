@@ -6,7 +6,7 @@ export class Player extends React.Component {
 		super(props);
 		this.state = {
 			toggle: null,
-            songId: this.props.songIdFromHome
+			songId: this.props.songIdFromHome
 		};
 		this.audio = null;
 	}
@@ -16,10 +16,6 @@ export class Player extends React.Component {
 			<div className="row player m-5">
 				<div className="col-4 offset-4">
 					<div className="row bg-dark">
-
-
-
-
 						{this.state.toggle == "inPlay" ? (
 							<div className="col text-white">
 								<button
@@ -40,10 +36,7 @@ export class Player extends React.Component {
 									<i className="fas fa-pause-circle fa-2x" />
 								</button>
 							</div>
-                            )}
-
-
-
+						)}
 					</div>
 				</div>
 				<audio
